@@ -59,11 +59,11 @@ void SortedRecords::AddListInSort(elem_record* l){
 	elem_record* temp2 = new elem_record;
 	temp2 = _top;
 	while (temp2 != NULL) {
-		if (temp->sum_count > temp2->sum_count) 
+		if (temp->sum_count < temp2->sum_count) 
 			temp2 = temp2->next;
 		else {
 			if (temp->sum_count == temp2->sum_count) {
-				if (temp->sum_uniq <= temp2->sum_uniq) {
+				if (temp->sum_uniq >= temp2->sum_uniq) {
 					InsertRecordBeforeOld(temp, temp2);
 					_size++;
 					return;
@@ -94,7 +94,7 @@ void SortedRecords::OutInFile() {
 	elem_record* temp = new elem_record;
 	temp = _top;
 	FILE * file;
-	file = fopen("record.txt","w");
+	file = fopen("result.txt","w");
 	fprintf(file, "_______________________________________ \n");
 	fprintf(file, "| Product  |  Sum(count) | Count_uniq  | \n");
 	fprintf(file, "|__________|_____________|_____________| \n");
