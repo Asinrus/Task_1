@@ -99,9 +99,6 @@ void SortedRecords::OutInFile() {
 	fprintf(file, "| Product  |  Sum(count) | Count_uniq  | \n");
 	fprintf(file, "|__________|_____________|_____________| \n");
 	while (temp != NULL) {
-		if (temp->sum_count >= INT_MAX) {
-			fprintf(file, "|%9s | NaN| %10d | \n", temp->product, temp->sum_uniq);
-		}
 		fprintf(file, "|%9s | %10d | %10d | \n",temp->product,temp->sum_count,temp->sum_uniq);
 		temp = temp->next;
 	}
@@ -110,7 +107,6 @@ void SortedRecords::OutInFile() {
 }
 
 void SortedRecords::InsertRecordAfterOld(elem_record* new_list, elem_record* old_list) {
-	//Проверка, является ли старый элемент последним
 	if (old_list->next != NULL) {
 		new_list->prev = old_list;
 		new_list->next = old_list->next;
@@ -128,7 +124,6 @@ void SortedRecords::InsertRecordAfterOld(elem_record* new_list, elem_record* old
 }
 
 void SortedRecords::InsertRecordBeforeOld(elem_record* new_list, elem_record* old_list) {
-	//Проверка, является ли старый элемент первым
 	if (old_list->prev != NULL) {
 		new_list->prev = old_list->prev;
 		new_list->next = old_list;
