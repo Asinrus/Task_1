@@ -3,13 +3,17 @@
 
 Дан файл в формате  txt: 
 
-id_product|count_product|product
+id_product | count_product | product
 
-1122;99999;carrot
+-----------;---------------;--------
+
+11229;9999;carrot
 
 Id3;100;potato
 
 12354;33;meat 
+
+
 
 Надо записать в файл result.txt статистику в виде:
 
